@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160422083336) do
+ActiveRecord::Schema.define(version: 20160425155659) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160422083336) do
     t.datetime "updated_at",         null: false
     t.integer  "product_offered_id"
     t.boolean  "state"
+    t.integer  "id_user"
   end
 
   add_index "transactions", ["product_req_id"], name: "index_transactions_on_product_req_id"

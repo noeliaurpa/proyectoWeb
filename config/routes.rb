@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
 
             match '/all',  to: 'products#all',            via: 'get'
-
+            match '/other_Product_id',  to: 'products#other_Product_id',            via: 'get'
+            match '/all_transactions',  to: 'transactions#all_transactions',            via: 'get'
+            
             match '/signin',  to: 'sessions#create',      via: 'post'
             match '/signup',  to: 'users#create',         via: 'post'
             match '/signout', to: 'sessions#destroy',     via: 'delete'

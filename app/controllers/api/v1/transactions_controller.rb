@@ -11,6 +11,7 @@ module Api
 
             def all_trnsactions
                 transactions = Transaction.where(product_offered_id: @data_session.user_id)
+                render json: transactions, status: 200
             end
 
             def show

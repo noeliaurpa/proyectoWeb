@@ -14,6 +14,11 @@ module Api
                 render json: products, status: 200
             end
 
+            def other_Product_id
+                products = Product.where.not(users_id: @data_session.user_id)
+                render json: products, status: 200
+            end
+
             def show
                 render json: @product, status: 200
             end

@@ -48,7 +48,7 @@ module Api
 
             # Never trust parameters from the scary internet, only allow the white list through.
             def user_params
-                params.require(:user).permit(:name, :username, :password, :password_confirmation, :subdomain )
+                params.permit(:name, :username, :password, :password_confirmation, :subdomain )
             end
 
 

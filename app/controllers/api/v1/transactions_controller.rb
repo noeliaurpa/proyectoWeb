@@ -9,7 +9,7 @@ module Api
                 render json: transactions, status: 200
             end
 
-            def all_trnsactions
+            def all_transactions
                 transactions = Transaction.where(product_offered_id: @data_session.user_id)
                 render json: transactions, status: 200
             end

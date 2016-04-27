@@ -10,7 +10,7 @@ module Api
             end
 
             def all_transactions
-                transactions = Transaction.where(product_offered_id: @data_session.user_id)
+                transactions = Transaction.where(id_user: @data_session.user_id)
                 render json: transactions, status: 200
             end
 
@@ -20,7 +20,7 @@ module Api
             def create
                 if !@product_req.nil? && !@product_offered.nil?
                     transaction = Transaction.new(product_req_id: @product_req.id,
-                    product_offered_id: @product_offered.id)
+                    product_offered_id: @product_offered.id, id_user: @data_session.user_id, state: "t")
                     cambio1 = @product_req.users_id
                     cambio2 = @product_offered.users_id
                     if @product_offered.update(state: "f", users_id: cambio1) &&  @product_req.update(state: "f", users_id: cambio2 )
@@ -43,7 +43,7 @@ module Api
             end
 
             def destroy
-                transaction.destroy
+                @transactions.destroy
                 head :no_content
             end
 
@@ -64,7 +64,7 @@ module Api
         end
 
         def set_transaction
-            @transaction = Transaction.find(params[:id])
+            @transactions = Transaction.find(params[:id])
         end
 
         def transaction_params

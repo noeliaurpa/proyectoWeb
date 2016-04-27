@@ -23,7 +23,7 @@ module Api
                     product_offered_id: @product_offered.id, id_user: @data_session.user_id, state: "t")
                     cambio1 = @product_req.users_id
                     cambio2 = @product_offered.users_id
-                    if @product_offered.update(state: "f", users_id: cambio1) &&  @product_req.update(state: "f", users_id: cambio2 )
+                    if @product_offered.update(state: "t", users_id: cambio1) &&  @product_req.update(state: "t", users_id: cambio2 )
                         if transaction.save
                             render json: transaction, status: :created
                         else
